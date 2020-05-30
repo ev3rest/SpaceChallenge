@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA70B8F024825FBB0063FA5C /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA70B8EF24825FBB0063FA5C /* Brain.swift */; };
+		FA70B8F2248260310063FA5C /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA70B8F1248260310063FA5C /* Connectivity.swift */; };
 		FA9EBAA824825C7F0027B8EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EBAA724825C7F0027B8EE /* AppDelegate.swift */; };
 		FA9EBAAA24825C7F0027B8EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EBAA924825C7F0027B8EE /* SceneDelegate.swift */; };
 		FA9EBAAC24825C7F0027B8EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EBAAB24825C7F0027B8EE /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA70B8EF24825FBB0063FA5C /* Brain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brain.swift; sourceTree = "<group>"; };
+		FA70B8F1248260310063FA5C /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		FA9EBAA424825C7F0027B8EE /* NasaHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9EBAA724825C7F0027B8EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9EBAA924825C7F0027B8EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 				FA9EBAA724825C7F0027B8EE /* AppDelegate.swift */,
 				FA9EBAA924825C7F0027B8EE /* SceneDelegate.swift */,
 				FA9EBAAB24825C7F0027B8EE /* ViewController.swift */,
+				FA70B8F1248260310063FA5C /* Connectivity.swift */,
+				FA70B8EF24825FBB0063FA5C /* Brain.swift */,
 				FA9EBAAD24825C7F0027B8EE /* Main.storyboard */,
 				FA9EBAB324825C800027B8EE /* Assets.xcassets */,
 				FA9EBAB524825C800027B8EE /* LaunchScreen.storyboard */,
@@ -143,7 +149,9 @@
 			files = (
 				FA9EBAAC24825C7F0027B8EE /* ViewController.swift in Sources */,
 				FA9EBAA824825C7F0027B8EE /* AppDelegate.swift in Sources */,
+				FA70B8F2248260310063FA5C /* Connectivity.swift in Sources */,
 				FA9EBAB224825C7F0027B8EE /* NasaHackathon.xcdatamodeld in Sources */,
+				FA70B8F024825FBB0063FA5C /* Brain.swift in Sources */,
 				FA9EBAAA24825C7F0027B8EE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +306,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ev3.NasaHackathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -316,7 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ev3.NasaHackathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
