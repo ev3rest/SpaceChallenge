@@ -43,6 +43,11 @@ class ViewController: UIViewController{
     }
     @IBAction func infectedhandler(_ sender: Any) {
         brain.posthash(hash: myuuid)
+        let alert = UIAlertController(title: "Thanks!", message: "All the people that you contacted with in the past 14 days will be notified without disclosing your identity", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        self.present(alert, animated: true)
     }
     
     @objc func update(){
