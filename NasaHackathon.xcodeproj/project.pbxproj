@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92CA291C7D2F9E306697B939 /* Pods_NasaHackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6435F1E7698E061C8ACA5705 /* Pods_NasaHackathon.framework */; };
 		FA70B8F024825FBB0063FA5C /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA70B8EF24825FBB0063FA5C /* Brain.swift */; };
 		FA70B8F2248260310063FA5C /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA70B8F1248260310063FA5C /* Connectivity.swift */; };
 		FA9EBAA824825C7F0027B8EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EBAA724825C7F0027B8EE /* AppDelegate.swift */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6435F1E7698E061C8ACA5705 /* Pods_NasaHackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasaHackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		715D383BE0BD8F74BDD0B067 /* Pods-NasaHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaHackathon.release.xcconfig"; path = "Target Support Files/Pods-NasaHackathon/Pods-NasaHackathon.release.xcconfig"; sourceTree = "<group>"; };
+		895CA8C7DBF76E4150E17B33 /* Pods-NasaHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaHackathon.debug.xcconfig"; path = "Target Support Files/Pods-NasaHackathon/Pods-NasaHackathon.debug.xcconfig"; sourceTree = "<group>"; };
 		FA70B8EF24825FBB0063FA5C /* Brain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brain.swift; sourceTree = "<group>"; };
 		FA70B8F1248260310063FA5C /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		FA9EBAA424825C7F0027B8EE /* NasaHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,17 +41,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CA291C7D2F9E306697B939 /* Pods_NasaHackathon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11EA1552B7C84A74E3992788 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6435F1E7698E061C8ACA5705 /* Pods_NasaHackathon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E842115998A285659B2A903 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				895CA8C7DBF76E4150E17B33 /* Pods-NasaHackathon.debug.xcconfig */,
+				715D383BE0BD8F74BDD0B067 /* Pods-NasaHackathon.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FA9EBA9B24825C7F0027B8EE = {
 			isa = PBXGroup;
 			children = (
 				FA9EBAA624825C7F0027B8EE /* NasaHackathon */,
 				FA9EBAA524825C7F0027B8EE /* Products */,
+				6E842115998A285659B2A903 /* Pods */,
+				11EA1552B7C84A74E3992788 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA9EBABB24825C800027B8EE /* Build configuration list for PBXNativeTarget "NasaHackathon" */;
 			buildPhases = (
+				19B90A40820259228B87F270 /* [CP] Check Pods Manifest.lock */,
 				FA9EBAA024825C7F0027B8EE /* Sources */,
 				FA9EBAA124825C7F0027B8EE /* Frameworks */,
 				FA9EBAA224825C7F0027B8EE /* Resources */,
+				4D21857E5A636347F9DA12D7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,6 +168,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19B90A40820259228B87F270 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NasaHackathon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D21857E5A636347F9DA12D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NasaHackathon/Pods-NasaHackathon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NasaHackathon/Pods-NasaHackathon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NasaHackathon/Pods-NasaHackathon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA9EBAA024825C7F0027B8EE /* Sources */ = {
@@ -294,6 +363,7 @@
 		};
 		FA9EBABC24825C800027B8EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 895CA8C7DBF76E4150E17B33 /* Pods-NasaHackathon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -312,6 +382,7 @@
 		};
 		FA9EBABD24825C800027B8EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 715D383BE0BD8F74BDD0B067 /* Pods-NasaHackathon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

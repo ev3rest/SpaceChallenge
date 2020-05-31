@@ -53,7 +53,7 @@ class ConnectivityService : NSObject {
     }
 
     func send(hashData : String) {
-        NSLog("%@", "sendSong: \(hashData) to \(session.connectedPeers.count) peers")
+        NSLog("%@", "sendHash: \(hashData) to \(session.connectedPeers.count) peers")
 
         if session.connectedPeers.count > 0 {
             do {

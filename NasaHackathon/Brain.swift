@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
+import Alamofire
 
 class Brain{
     var container: NSPersistentContainer!
@@ -61,4 +62,58 @@ class Brain{
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    // *END: CoreData Stuff
+    
+    // *START: API Stuff ----------
+    
+    // Add your UUID to the DB
+    func posthash(hash: String){
+        var jsonresult = ""
+        let rawdata = ["data": [hash]]
+        let encoder = JSONEncoder()
+        if let jsonData = try? encoder.encode(rawdata) {
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                jsonresult = jsonString
+            }
+        }
+        let escapedjson = self.escape(string: jsonresult)
+        let url = "http://dev.ev3.me:5000/insert_contacts?hashes=\(escapedjson)"
+        print(url)
+        AF.request(url,
+                   method: .post,
+                   parameters: [:],
+                   encoding: URLEncoding(destination: .queryString)
+        ).responseData{ response in
+            debugPrint(response)
+        }
+    }
+    func escape(string: String) -> String {
+        let allowedCharacters = string.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: ":=\"#%/<>?@\\^`{|}").inverted) ?? ""
+        return allowedCharacters
+    }
+}
+
+
+extension Dictionary {
+    func percentEncoded() -> Data? {
+        return map { key, value in
+            let escapedKey = "\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
+            let escapedValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
+            return escapedKey + "=" + escapedValue
+        }
+        .joined(separator: "&")
+        .data(using: .utf8)
+    }
+}
+
+extension CharacterSet {
+    static let urlQueryValueAllowed: CharacterSet = {
+        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let subDelimitersToEncode = "!$&'()*+,;="
+
+        var allowed = CharacterSet.urlQueryAllowed
+        allowed.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
+        return allowed
+    }()
 }

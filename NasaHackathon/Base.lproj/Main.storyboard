@@ -39,10 +39,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMf-vD-MGi">
+                                <rect key="frame" x="20" y="832" width="374" height="30"/>
+                                <state key="normal" title="I've been infected"/>
+                                <connections>
+                                    <action selector="infectedhandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dym-U5-d1Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rH1-c8-2tG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BuB-Oo-shg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CMf-vD-MGi" secondAttribute="trailing" constant="20" id="L7n-IY-d0l"/>
                             <constraint firstItem="yrf-xl-crm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="L9L-Yb-sye"/>
                             <constraint firstItem="yrf-xl-crm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QJO-Ly-BEH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yrf-xl-crm" secondAttribute="trailing" constant="20" id="SoV-jv-zkP"/>
@@ -54,11 +62,14 @@
                             <constraint firstItem="BFu-Y0-5uj" firstAttribute="top" secondItem="rH1-c8-2tG" secondAttribute="bottom" constant="8" id="hyr-ZL-KTp"/>
                             <constraint firstItem="BFu-Y0-5uj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="koc-nD-r2l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rH1-c8-2tG" secondAttribute="trailing" constant="20" id="mwB-Mh-vJ3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CMf-vD-MGi" secondAttribute="bottom" id="pIM-Gw-8in"/>
+                            <constraint firstItem="CMf-vD-MGi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="v9r-7y-cSQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="hashlabel" destination="BFu-Y0-5uj" id="VEg-jm-I8C"/>
+                        <outlet property="infectedbutton" destination="CMf-vD-MGi" id="BPY-Mg-Duu"/>
                         <outlet property="thishashlabel" destination="BAB-Z0-Mg2" id="jqu-ps-Qhq"/>
                     </connections>
                 </viewController>

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController{
     @IBOutlet weak var thishashlabel: UILabel!
     @IBOutlet weak var hashlabel: UILabel!
+    @IBOutlet weak var infectedbutton: UIButton!
     
     let connection = ConnectivityService()
     private var myuuid: String = ""
@@ -35,7 +37,10 @@ class ViewController: UIViewController{
         timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(update), userInfo: nil, repeats: true)
         connection.delegate = self
     }
-
+    @IBAction func infectedhandler(_ sender: Any) {
+        brain.posthash(hash: myuuid)
+    }
+    
     @objc func update(){
         print("update triggered")
         connection.send(hashData: "\(myuuid)")
