@@ -4,7 +4,6 @@
         <attribute name="uuid" optional="YES" attributeType="String"/>
     </entity>
     <entity name="People" representedClassName="People" syncable="YES" codeGenerationType="class">
-        <attribute name="times" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -13,7 +12,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="People" positionX="-63" positionY="-18" width="128" height="73"/>
         <element name="MyUUID" positionX="-54" positionY="9" width="128" height="58"/>
+        <element name="People" positionX="-63" positionY="-18" width="128" height="58"/>
     </elements>
 </model>

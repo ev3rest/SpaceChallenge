@@ -79,7 +79,6 @@ class Brain{
         }
         let escapedjson = self.escape(string: jsonresult)
         let url = "http://dev.ev3.me:5000/insert_contacts?hashes=\(escapedjson)"
-        print(url)
         AF.request(url,
                    method: .post,
                    parameters: [:],
@@ -91,6 +90,54 @@ class Brain{
     func escape(string: String) -> String {
         let allowedCharacters = string.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: ":=\"#%/<>?@\\^`{|}").inverted) ?? ""
         return allowedCharacters
+    }
+    
+    @objc func checkhashes()-> Bool{
+        load()
+        var allpeople = [String]()
+        var toreturn: Bool = false
+        if people.count > 0{
+            for x in people{
+                allpeople.append(x.committedValues(forKeys: ["uuid"])["uuid"]! as! String)
+            }
+            var allpeople_string = ""
+            for each in allpeople{
+                if allpeople_string == ""{
+                    allpeople_string = "\(each)"
+                }
+                else{
+                    allpeople_string = "\(allpeople_string)\",\"\(each)"
+                }
+            }
+            
+            var jsonresult = ""
+            let rawdata = ["data": [allpeople_string]]
+            let encoder = JSONEncoder()
+            if let jsonData = try? encoder.encode(rawdata) {
+                if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    jsonresult = jsonString
+                }
+            }
+            let escapedjson = self.escape(string: jsonresult)
+            let url = "http://dev.ev3.me:5000/check_contacts?hashes=\(escapedjson)"
+            print(url)
+            AF.request(url,
+                       method: .post,
+                       parameters: [:],
+                       encoding: URLEncoding(destination: .queryString)
+            ).responseJSON{ response in
+                switch response.result {
+                case let .success(value):
+                    let jsonData = value as! [String:Any]
+                    if jsonData["response"] as! String != "No risk"{
+                        toreturn = true
+                    }
+                case let .failure(error):
+                    print(error)
+                }
+            }
+        }
+        return toreturn
     }
 }
 
